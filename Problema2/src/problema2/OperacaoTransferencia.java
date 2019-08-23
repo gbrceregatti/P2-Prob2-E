@@ -12,5 +12,13 @@ package problema2;
 public class OperacaoTransferencia extends Operacao {
     
     private ContaCorrente contraPartida;
+
+    public ContaCorrente getContraPartida() {
+        return contraPartida;
+    }
+
+    public void setContraPartida(ContaCorrente contraPartida) {
+        this.contraPartida = contraPartida;
+    }
     
 }

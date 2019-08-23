@@ -5,6 +5,8 @@
  */
 package problema2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -14,6 +16,11 @@ public class Cliente {
     private String nome;
     private String telFixo;
     private String telCelular;
+    private final ArrayList<ContaCorrente> contasCorrentes;
+
+    public Cliente() {
+        contasCorrentes = new ArrayList();
+    }  
 
     public String getNome() {
         return nome;
