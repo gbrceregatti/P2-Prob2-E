@@ -1,21 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package problema2;
+package problema2.Parte1;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author User
- */
 public class Cliente {
     
     private String nome;
     private String telFixo;
     private String telCelular;
+    private PreferenciaMensagem preferenciaMensagem;
+
+    public PreferenciaMensagem getPreferenciaMensagem() {
+        return preferenciaMensagem;
+    }
+
+    public void setPreferenciaMensagem(PreferenciaMensagem preferenciaMensagem) {
+        this.preferenciaMensagem = preferenciaMensagem;
+    }
     private final ArrayList<ContaCorrente> contasCorrentes;
 
     public Cliente() {
@@ -48,6 +48,5 @@ public class Cliente {
 
     public ArrayList<ContaCorrente> getContasCorrentes() {
         return contasCorrentes;
-    }
-    
+    } 
 }

@@ -1,5 +1,5 @@
-package problema2;
-
+package problema2.Parte1;
+import problema2.Parte1.ContaCorrente;
 import java.util.Date;
 
 public class Operacao {

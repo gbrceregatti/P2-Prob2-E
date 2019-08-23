@@ -1,5 +1,5 @@
-package problema2;
-
+package problema2.Parte1;
+import problema2.Parte1.Cliente;
 import java.util.ArrayList;
 
 public class ContaCorrente {
@@ -68,7 +68,5 @@ public class ContaCorrente {
 
     public void setOperacoes(ArrayList<Operacao> operacoes) {
         this.operacoes = operacoes;
-    }
-    
-    
+    }  
 }
