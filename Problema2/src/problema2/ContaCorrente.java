@@ -1,11 +1,18 @@
 package problema2;
 
+import java.util.ArrayList;
+
 public class ContaCorrente {
     
     private int numero;
     private int agencia;
     private Cliente cliente;
     private double saldo;
+    private ArrayList<Operacao> operacoes;
+    
+    public ContaCorrente(){
+        operacoes = new ArrayList()
+    }
     
     public void sacar(double valor){
         
