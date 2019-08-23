@@ -8,4 +8,44 @@ public class Operacao {
     private TipoOperacao tipo;
     private ContaCorrente conta;
     private Date data;
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getSaldoAnterior() {
+        return saldoAnterior;
+    }
+
+    public void setSaldoAnterior(double saldoAnterior) {
+        this.saldoAnterior = saldoAnterior;
+    }
+
+    public TipoOperacao getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoOperacao tipo) {
+        this.tipo = tipo;
+    }
+
+    public ContaCorrente getConta() {
+        return conta;
+    }
+
+    public void setConta(ContaCorrente conta) {
+        this.conta = conta;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
 }

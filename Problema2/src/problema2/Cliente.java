@@ -45,7 +45,9 @@ public class Cliente {
     public void setTelCelular(String telCelular) {
         this.telCelular = telCelular;
     }
-    
-    
+
+    public ArrayList<ContaCorrente> getContasCorrentes() {
+        return contasCorrentes;
+    }
     
 }
