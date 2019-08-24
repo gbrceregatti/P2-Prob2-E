@@ -1,17 +1,20 @@
 package problema2.Parte1;
 
-import problema2.Parte1.Operacao;
-import problema2.Parte1.ContaCorrente;
 
 public class OperacaoTransferencia extends Operacao {
     
-    private ContaCorrente contraPartida;
+    private ContaCorrente contaPartida;
 
-    public ContaCorrente getContraPartida() {
-        return contraPartida;
+    public OperacaoTransferencia(double valor, double saldoAnterior, TipoOperacao tipo, ContaCorrente conta, ContaCorrente contaPartida) {
+        super(valor, saldoAnterior, tipo, conta);
+        this.contaPartida = contaPartida;
     }
 
-    public void setContraPartida(ContaCorrente contraPartida) {
-        this.contraPartida = contraPartida;
+    public ContaCorrente getContaPartida() {
+        return contaPartida;
+    }
+
+    public void setContaPartida(ContaCorrente contaPartida) {
+        this.contaPartida = contaPartida;
     }
 }

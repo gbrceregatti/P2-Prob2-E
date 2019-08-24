@@ -9,6 +9,16 @@ public class Operacao {
     private ContaCorrente conta;
     private Date data;
 
+    public Operacao(double valor, double saldoAnterior, TipoOperacao tipo, ContaCorrente conta) {
+        this.valor = valor;
+        this.saldoAnterior = saldoAnterior;
+        this.tipo = tipo;
+        this.conta = conta;
+        this.data = new Date();
+    }
+
+   
+    
     public double getValor() {
         return valor;
     }
