@@ -9,7 +9,7 @@ public class Mensagem {
     }
     
     public void enviarMensagem(String mensagem){
-        System.out.println("Cliente" + cliente.getNome()
+        System.out.println("Cliente " + cliente.getNome()
                + " \n Envio de mensagem por " + cliente.getPreferenciaMensagem() + ": " + mensagem);   
     }
 }

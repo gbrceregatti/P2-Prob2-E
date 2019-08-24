@@ -37,19 +37,20 @@ public class ContaCorrente {
         if (contaDestino != null && saldo >= valor && valor > 0) {
             OperacaoTransferencia operacao = new OperacaoTransferencia(valor, saldo, TipoOperacao.SAIDA, this, contaDestino);
             operacoes.add(operacao);
-            this.saldo -= valor;
+            this.receberTransferencia(valor, contaDestino);
             Mensagem mensagem = new Mensagem(cliente);
             mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + contaDestino.getNumero());
         }
     }
 
-    private void receberTransferencia(double valor, ContaCorrente origem) {
-        if (origem != null && origem.getSaldo() >= valor && valor > 0) {
-            OperacaoTransferencia operacao = new OperacaoTransferencia(valor, saldo, TipoOperacao.ENTRADA, origem, this);
+    private void receberTransferencia(double valor, ContaCorrente conta) {
+        if (conta != null && conta.getSaldo() >= valor && valor > 0) {
+            OperacaoTransferencia operacao = new OperacaoTransferencia(valor, saldo, TipoOperacao.ENTRADA, conta, this);
             operacoes.add(operacao);
-            this.saldo += valor;
+            this.saldo -= valor;
+            conta.depositar(valor);
             Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + origem.getNumero());
+            mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + conta.getNumero());
         }
     }
 
@@ -80,11 +81,7 @@ public class ContaCorrente {
     public double getSaldo() {
         return saldo;
     }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
+    
     public ArrayList<Operacao> getOperacoes() {
         return operacoes;
     }
