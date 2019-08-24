@@ -29,7 +29,7 @@ public class ContaCorrente {
             operacoes.add(operacao);
             this.saldo += valor;
              Mensagem mensagem = new Mensagem(cliente);
-             mensagem.enviarMensagem("Depósito de " + valor + "reais para a conta número " + numero);
+             mensagem.enviarMensagem("Depósito de " + valor + " reais para a conta número " + numero);
         }
     }
 
