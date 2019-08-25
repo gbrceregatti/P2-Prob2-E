@@ -7,6 +7,7 @@ public class Cliente {
     private String nome;
     private String telFixo;
     private String telCelular;
+    private final ArrayList<ContaCorrente> contasCorrentes;
     private PreferenciaMensagem preferenciaMensagem;
 
     public PreferenciaMensagem getPreferenciaMensagem() {
@@ -16,7 +17,6 @@ public class Cliente {
     public void setPreferenciaMensagem(PreferenciaMensagem preferenciaMensagem) {
         this.preferenciaMensagem = preferenciaMensagem;
     }
-    private final ArrayList<ContaCorrente> contasCorrentes;
 
     public Cliente() {
         contasCorrentes = new ArrayList();

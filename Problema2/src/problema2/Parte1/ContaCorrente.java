@@ -19,7 +19,7 @@ public class ContaCorrente {
             operacoes.add(operacao);
             this.saldo -= valor;
             Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Saque de " + valor + "reais para a conta número " + numero);
+            mensagem.enviarMensagem("Saque de " + valor + "reais da conta número " + numero);
         }
     }
 
@@ -28,8 +28,8 @@ public class ContaCorrente {
             Operacao operacao = new Operacao(valor, saldo, TipoOperacao.ENTRADA, this);
             operacoes.add(operacao);
             this.saldo += valor;
-             Mensagem mensagem = new Mensagem(cliente);
-             mensagem.enviarMensagem("Depósito de " + valor + " reais para a conta número " + numero);
+            Mensagem mensagem = new Mensagem(cliente);
+            mensagem.enviarMensagem("Depósito de " + valor + " reais na conta número " + numero);
         }
     }
 
@@ -40,6 +40,7 @@ public class ContaCorrente {
             this.receberTransferencia(valor, contaDestino);
             Mensagem mensagem = new Mensagem(cliente);
             mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + contaDestino.getNumero());
+            contaDestino.receberTransferencia(valor, this);
         }
     }
 
@@ -50,7 +51,9 @@ public class ContaCorrente {
             this.saldo -= valor;
             conta.depositar(valor);
             Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + conta.getNumero());
+            mensagem.enviarMensagem("Transferência de " + valor 
+            		+ "reais da conta número " + conta.getNumero() 
+            		+ "para a conta número" + this.getNumero());
         }
     }
 
