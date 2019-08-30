@@ -8,8 +8,8 @@ public class Mensagem {
         this.cliente = cliente;
     }
     
-    public void enviarMensagem(String mensagem){
+    /*public void enviarMensagem(String mensagem){
         System.out.println("Cliente " + cliente.getNome()
                + " \n Envio de mensagem por " + cliente.getPreferenciaMensagem() + ": " + mensagem);   
-    }
+    }*/
 }

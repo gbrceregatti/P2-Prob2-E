@@ -28,7 +28,10 @@ public class Notificacao implements Servico{
                 System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Depósito de R$" + valor + " - Serviço de notificação das operações realizadas" + getTipoMensagemStr());
                 break;
             case 3:
-                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência de R$" + valor + " - Serviço de notificação das operações realizadas" + getTipoMensagemStr());
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência tipo saida de R$" + valor + " - Serviço de notificação das operações realizadas" + getTipoMensagemStr());
+                break;
+            case 4:
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência tipo entrada de R$" + valor + " - Serviço de notificação das operações realizadas" + getTipoMensagemStr());
                 break;
         }
     }

@@ -22,7 +22,10 @@ public class AnaliseFluxo implements Servico {
                 System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Depósito de R$" + valor + " - Serviço de Análise de Fluxo de Caixa");
                 break;
             case 3:
-                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência de R$" + valor + " - Serviço de Análise de Fluxo de Caixa");
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência tipo saida de R$" + valor + " - Serviço de Análise de Fluxo de Caixa");
+                break;
+            case 4:
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência tipo entrada de R$" + valor + " - Serviço de Análise de Fluxo de Caixa");
                 break;
         }
     }

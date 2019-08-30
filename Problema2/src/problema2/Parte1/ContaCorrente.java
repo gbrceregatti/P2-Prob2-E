@@ -54,6 +54,7 @@ public class ContaCorrente {
             operacoes.add(operacao);
             this.saldo -= valor;
             conta.depositar(valor);
+            notificarClientes(4, valor);
             /*Mensagem mensagem = new Mensagem(cliente);
             mensagem.enviarMensagem("Transferência de " + valor 
             		+ "reais da conta número " + conta.getNumero() 
@@ -71,10 +72,16 @@ public class ContaCorrente {
         if(servico.getClass().getName().equalsIgnoreCase("Notificacao")) {
             Notificacao not = (Notificacao) servico;
             if (cliente.getClass().getName().equalsIgnoreCase("ClientePessoaFisica") && not.getTipoMensagem() == 3) {
-                throw new IllegalArgumentException("Um cliente do tipo pessoa física não pode rceber notificações por JMS");
+                throw new IllegalArgumentException("Um cliente do tipo pessoa física não pode receber notificações por JMS");
             }
         }
         servicos.add(servico);
+    }
+    
+    public void removerServico(Servico servico) {
+        if(servico != null && servicos.contains(servico)) {
+            servicos.remove(servico);
+        }
     }
 
     public int getNumero() {

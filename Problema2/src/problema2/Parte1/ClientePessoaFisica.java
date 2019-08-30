@@ -12,11 +12,11 @@ public class ClientePessoaFisica extends Cliente {
         this.cpf = cpf;
     }
 
-    @Override
+    /*@Override
     public void setPreferenciaMensagem(PreferenciaMensagem preferenciaMensagem) {
         if (preferenciaMensagem != PreferenciaMensagem.JMS)
             super.setPreferenciaMensagem(preferenciaMensagem);
         else
             throw new IllegalArgumentException("Um cliente do tipo pessoa física não pode rceber notificações por JMS");
-    }
+    }*/
 }

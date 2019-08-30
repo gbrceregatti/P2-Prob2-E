@@ -22,7 +22,10 @@ public class BaixaAutomatica implements Servico {
                 System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Depósito de R$" + valor + " - Serviço de baixa automática de investimento");
                 break;
             case 3:
-                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência de R$" + valor + " - Serviço de baixa automática de investimento");
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência tipo saida de R$" + valor + " - Serviço de baixa automática de investimento");
+                break;
+            case 4:
+                System.out.print("Cliente " + contaCorrente.getCliente().getNome() + ", Conta " + contaCorrente.getNumero() + ", Tranferência de tipo entrada R$" + valor + " - Serviço de baixa automática de investimento");
                 break;
         }
     }
