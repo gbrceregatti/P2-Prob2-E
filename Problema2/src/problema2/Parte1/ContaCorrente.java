@@ -8,6 +8,7 @@ public class ContaCorrente {
     private Cliente cliente;
     private double saldo;
     private ArrayList<Operacao> operacoes;
+    private ArrayList<Servico> servicos;
     
     public ContaCorrente() {
         operacoes = new ArrayList();
@@ -18,8 +19,9 @@ public class ContaCorrente {
             Operacao operacao = new Operacao(valor, saldo, TipoOperacao.SAIDA, this);
             operacoes.add(operacao);
             this.saldo -= valor;
-            Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Saque de " + valor + "reais da conta número " + numero);
+            /*Mensagem mensagem = new Mensagem(cliente);
+            mensagem.enviarMensagem("Saque de " + valor + "reais da conta número " + numero);*/
+            notificarClientes(1, valor);
         }
     }
 
@@ -28,8 +30,9 @@ public class ContaCorrente {
             Operacao operacao = new Operacao(valor, saldo, TipoOperacao.ENTRADA, this);
             operacoes.add(operacao);
             this.saldo += valor;
-            Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Depósito de " + valor + " reais na conta número " + numero);
+            /*Mensagem mensagem = new Mensagem(cliente);
+            mensagem.enviarMensagem("Depósito de " + valor + " reais na conta número " + numero);*/
+            notificarClientes(2, valor);
         }
     }
 
@@ -38,9 +41,10 @@ public class ContaCorrente {
             OperacaoTransferencia operacao = new OperacaoTransferencia(valor, saldo, TipoOperacao.SAIDA, this, contaDestino);
             operacoes.add(operacao);
             this.receberTransferencia(valor, contaDestino);
-            Mensagem mensagem = new Mensagem(cliente);
-            mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + contaDestino.getNumero());
+            /*Mensagem mensagem = new Mensagem(cliente);
+            mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + contaDestino.getNumero());*/
             contaDestino.receberTransferencia(valor, this);
+            notificarClientes(3, valor);
         }
     }
 
@@ -50,11 +54,27 @@ public class ContaCorrente {
             operacoes.add(operacao);
             this.saldo -= valor;
             conta.depositar(valor);
-            Mensagem mensagem = new Mensagem(cliente);
+            /*Mensagem mensagem = new Mensagem(cliente);
             mensagem.enviarMensagem("Transferência de " + valor 
             		+ "reais da conta número " + conta.getNumero() 
-            		+ "para a conta número" + this.getNumero());
+            		+ "para a conta número" + this.getNumero());*/
         }
+    }
+    
+    public void notificarClientes(int transacao, Double valor) {
+        for(Servico servico: servicos) {
+            servico.notificar(transacao, this, valor);
+        }
+    }
+    
+    public void adicionarServico(Servico servico) {   
+        if(servico.getClass().getName().equalsIgnoreCase("Notificacao")) {
+            Notificacao not = (Notificacao) servico;
+            if (cliente.getClass().getName().equalsIgnoreCase("ClientePessoaFisica") && not.getTipoMensagem() == 3) {
+                throw new IllegalArgumentException("Um cliente do tipo pessoa física não pode rceber notificações por JMS");
+            }
+        }
+        servicos.add(servico);
     }
 
     public int getNumero() {
@@ -91,5 +111,13 @@ public class ContaCorrente {
 
     public void setOperacoes(ArrayList<Operacao> operacoes) {
         this.operacoes = operacoes;
+    }
+
+    public ArrayList<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(ArrayList<Servico> servicos) {
+        this.servicos = servicos;
     }
 }
