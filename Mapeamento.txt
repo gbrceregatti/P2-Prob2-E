@@ -1,0 +1,6 @@
+ContaCorrente = Subject
+Servico = Observer
+
+Aplicando o padrão observer em nosso projeto a classe ContaCorrente faz o papel de subject possuindo o atributo servicos como uma lista dos observers(servicos) e o método notificarClientes como update que invoca o método notificar dos servicos. A interface Servico faz o papel de Observer possuindo o método notificar que cria sua notificação.
+
+O padrão singleton foi aplicado nas classes que implementam Servico por precisar de no máximo uma instância na execução da aplicação.

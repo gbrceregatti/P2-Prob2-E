@@ -10,6 +10,18 @@ package problema2.Parte1;
  * @author User
  */
 public class BaixaAutomatica implements Servico {
+    
+    private static BaixaAutomatica singleton;
+
+    private BaixaAutomatica() {
+    }
+    
+    public static BaixaAutomatica getInstance() {
+        if (singleton == null) {
+            singleton = new BaixaAutomatica();
+        }
+        return singleton;
+    }
 
     @Override
     public void notificar(int transacao, ContaCorrente contaCorrente, Double valor) {

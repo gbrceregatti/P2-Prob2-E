@@ -10,6 +10,18 @@ package problema2.Parte1;
  * @author User
  */
 public class AnaliseFluxo implements Servico {
+    
+    private static AnaliseFluxo singleton;
+
+    private AnaliseFluxo() {
+    }
+    
+    public static AnaliseFluxo getInstance() {
+        if (singleton == null) {
+            singleton = new AnaliseFluxo();
+        }
+        return singleton;
+    }
 
     @Override
     public void notificar(int transacao, ContaCorrente contaCorrente, Double valor) {

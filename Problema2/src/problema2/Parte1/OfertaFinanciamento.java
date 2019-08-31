@@ -11,6 +11,18 @@ package problema2.Parte1;
  */
 public class OfertaFinanciamento implements Servico {
     
+    private static OfertaFinanciamento singleton;
+
+    private OfertaFinanciamento() {
+    }
+    
+    public static OfertaFinanciamento getInstance() {
+        if (singleton == null) {
+            singleton = new OfertaFinanciamento();
+        }
+        return singleton;
+    }
+    
     @Override
     public void notificar(int transacao, ContaCorrente contaCorrente, Double valor) {
         switch(transacao) {

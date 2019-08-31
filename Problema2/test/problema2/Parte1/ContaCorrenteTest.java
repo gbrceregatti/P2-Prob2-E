@@ -15,7 +15,7 @@ public class ContaCorrenteTest {
         System.out.println("Testando método depositar");
         double valorEsperado = 100.0;
         ClientePessoaFisica cliente = new ClientePessoaFisica();
-        cliente.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
+        //cliente.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
         cliente.setNome("Fulano");
         ContaCorrente conta = new ContaCorrente();
         conta.setNumero(1);
@@ -30,7 +30,7 @@ public class ContaCorrenteTest {
         System.out.println("Testando método sacar");
         double valorEsperado = 50.0;
         ClientePessoaFisica cliente = new ClientePessoaFisica();
-        cliente.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
+        //cliente.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
         cliente.setNome("Fulano");
         ContaCorrente conta = new ContaCorrente();
         conta.setNumero(1);
@@ -44,7 +44,7 @@ public class ContaCorrenteTest {
     public void testTransferir() {
         System.out.println("Testando método transferir");
         ClientePessoaFisica cliente1 = new ClientePessoaFisica();
-        cliente1.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
+        //cliente1.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
         cliente1.setNome("Fulano");
         ContaCorrente contaCliente1 = new ContaCorrente();
         contaCliente1.setNumero(1);
@@ -52,7 +52,7 @@ public class ContaCorrenteTest {
         contaCliente1.depositar(100.0);
         
         ClientePessoaFisica cliente2 = new ClientePessoaFisica();
-        cliente2.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
+        //cliente2.setPreferenciaMensagem(PreferenciaMensagem.WHATSAPP);
         cliente2.setNome("Fulano");
         ContaCorrente contaCliente2 = new ContaCorrente();
         contaCliente2.setNumero(2);

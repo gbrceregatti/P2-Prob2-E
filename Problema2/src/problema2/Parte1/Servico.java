@@ -10,6 +10,7 @@ package problema2.Parte1;
  * @author User
  */
 public interface Servico {
-    
+       
     public void notificar(int transacao, ContaCorrente contaCorrente, Double valor);
+    
 }

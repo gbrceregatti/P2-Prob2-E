@@ -12,6 +12,7 @@ public class ContaCorrente {
     
     public ContaCorrente() {
         operacoes = new ArrayList();
+        servicos = new ArrayList();
     }
 
     public void sacar(double valor) {
@@ -43,7 +44,7 @@ public class ContaCorrente {
             this.receberTransferencia(valor, contaDestino);
             /*Mensagem mensagem = new Mensagem(cliente);
             mensagem.enviarMensagem("Transferência de " + valor + "reais para a conta número " + contaDestino.getNumero());*/
-            contaDestino.receberTransferencia(valor, this);
+            //contaDestino.receberTransferencia(valor, this);
             notificarClientes(3, valor);
         }
     }
@@ -63,7 +64,7 @@ public class ContaCorrente {
     }
     
     public void notificarClientes(int transacao, Double valor) {
-        for(Servico servico: servicos) {
+        for (Servico servico: servicos) {
             servico.notificar(transacao, this, valor);
         }
     }

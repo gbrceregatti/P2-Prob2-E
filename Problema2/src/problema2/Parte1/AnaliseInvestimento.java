@@ -11,6 +11,18 @@ package problema2.Parte1;
  */
 public class AnaliseInvestimento implements Servico {
     
+    private static AnaliseInvestimento singleton;
+
+    private AnaliseInvestimento() {
+    }
+    
+    public static AnaliseInvestimento getInstance() {
+        if (singleton == null) {
+            singleton = new AnaliseInvestimento();
+        }
+        return singleton;
+    }
+    
     @Override
     public void notificar(int transacao, ContaCorrente contaCorrente, Double valor) {
         switch(transacao) {
